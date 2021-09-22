@@ -44,7 +44,7 @@ class ImageController extends Controller
         $store->category_id = $request->category_id;
         $store->src = $request->file('src')->hashName();
         $store->save();
-        return redirect('/image')->with('success', 'Image créé avec succès !');
+        return redirect('/image');
     }
 
     /**
@@ -91,6 +91,6 @@ class ImageController extends Controller
     {
         $destroy = Image::find($id);
         $destroy->delete();
-        return redirect('/image')->with('success', 'Image supprimé avec succès !');
+        return redirect('/image');
     }
 }

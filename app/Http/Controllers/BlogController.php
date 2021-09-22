@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Avatar;
-use App\Models\Role;
+use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        $blogs = Blog::all();
         $users = User::all();
-        $avatars = Avatar::all();
-        return view('pages.users.index', compact('users', 'avatars'));
+        return view('pages.blog.index', compact('blogs', 'users'));
     }
 
     /**
@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.blog.create');
     }
 
     /**
@@ -39,65 +39,65 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Blog;
+        $store->title = $request->title;
+        $store->content = $request->content;
+        $store->save();
+        return redirect('/blog');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $show = Blog::find($id);
+        return view('pages.blog.show', compact('show'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $users = User::find($id);
-        $avatars = Avatar::all();
-        $roles = Role::all();
-        return view('pages.users.edit', compact('users', 'avatars', 'roles'));
+        $blogs = Blog::find($id);
+        $this->authorize('blog-edit');
+        return view('pages.blog.edit', compact('blogs'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $update = User::find($id);
-        $update->name = $request->name;
-        $update->lastname = $request->lastname;
-        $update->age = $request->age;
-        $update->avatar_id = $request->avatar_id;
-        $update->email = $request->email;
+        $update = Blog::find($id);
+        $update->title = $request->title;
+        $update->content = $request->content;
         $update->save();
-        return redirect('/dashboard');
-
+        return redirect('/blog');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $destroy = User::find($id);
+        $destroy = Blog::find($id);
+        $this->authorize('blog-delete');
         $destroy -> delete();
-        $name = $destroy->name;
-        return redirect('/users');
+        return redirect('/blog');
     }
 }

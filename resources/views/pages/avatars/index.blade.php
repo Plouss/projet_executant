@@ -4,16 +4,6 @@
             {{ __('Avatars') }}
         </h2>
     </x-slot>
-
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <section class="flex">
         <section>
             @include('partials.sidebar')
@@ -22,11 +12,12 @@
             <div class="mb-8">
                 @include('partials.flash')
             </div>
-            <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+            <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 ...
+            ">
                 <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Ajoute ton avatar</h2>
                 <form action="/avatar" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1">
+                    <div class="grid grid-cols-2 gap-6 mt-4 sm:grid-cols-1">
                         <div>
                             <label class="text-gray-700 dark:text-gray-200" for="username">Nom</label>
                             <input name="name" type="text"
@@ -43,13 +34,13 @@
                     <div class="flex justify-end mt-6">
 
                         <button type="submit"
-                            class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Add</button>
+                            class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Ajouter</button>
                     </div>
                 </form>
             </section>
             <section>
                 <h1 class="text-center text-3xl mt-8 text-gray-700">Avatars disponibles</h1>
-                <div class="mt-10 grid grid-cols-4">
+                <div class="mt-10 grid grid-cols-2">
                     @foreach ($avatars as $avatar)
                         <div class="mb-5 max-w-md mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
                             <div class=" bg-cover p-3">

@@ -33,6 +33,15 @@ class UserSeeder extends Seeder
                 'role_id' => 2,
                 'email' => 'member@member.com',
                 'password' => Hash::make('member@member.com')
+            ],
+            [
+                'name' => 'Webmaster',
+                'lastname' => 'Webmaster',
+                'age' => '29',
+                'avatar_id' => 1,
+                'role_id' => 3,
+                'email' => 'webmaster@webmaster.com',
+                'password' => Hash::make('webmaster@webmaster.com')
             ]
         ]);
     }

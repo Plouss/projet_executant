@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\UserController;
@@ -32,12 +33,12 @@ Route::get('/gallery', function () {
     return view('pages.gallery.index', compact('images'));
 });
 
+Route::resource('user', UserController::class)->middleware('admin');
 Route::get('/users', function () {
     $users = User::all();
     return view('pages.users.index', compact('users'));
 })->middleware('admin');
 
-Route::resource('user', UserController::class)->middleware('admin');
 
 Route::resource('avatar', AvatarController::class)->middleware('admin');
 
@@ -46,5 +47,7 @@ Route::resource('category', CategoryController::class)->middleware('admin');
 Route::resource('image', ImageController::class)->middleware('admin');
 
 Route::resource('users', UserController::class)->middleware('admin');
+
+Route::resource('blog', BlogController::class);
 
 require __DIR__.'/auth.php';

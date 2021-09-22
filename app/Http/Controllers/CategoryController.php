@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $store->name = $request->name;
         $name = $request->name;
         $store->save();
-        return redirect('/category')->with('success', $name.' a été ajouté avec succès !');
+        return redirect('/category');
     }
 
     /**
@@ -81,7 +81,7 @@ class CategoryController extends Controller
         $update->name = $request->name;
         $name = $request->name;
         $update->save();
-        return redirect('/category')->with('success', $name.' a été modifié avec succès !');
+        return redirect('/category');
     }
 
     /**
@@ -95,6 +95,6 @@ class CategoryController extends Controller
         $destroy = Category::find($id);
         $destroy -> delete();
         $name = $destroy->name;
-        return redirect('/category')->with('success', 'La catégorie '.$name.' a été supprimé avec succès !');
+        return redirect('/category');
     }
 }

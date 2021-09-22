@@ -5,16 +5,6 @@
             {{ __('Users') }}
         </h2>
     </x-slot>
-
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <section class="flex">
         <section>
             @include('partials.sidebar')
@@ -23,10 +13,14 @@
             <div class="mb-8">
                 @include('partials.flash')
             </div>
-            <section class="p-6 mx-auto grid grid-cols-4 gap-4">
+            <div class="text-center">
+                <h1 class="text-2xl">Tous les utilisateurs</h1>
+            </div>
+            <section class="p-6 mx-auto grid grid-cols-3 gap-3">
                 @foreach ($users as $user)
-                    <div class="max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-                        <img class="object-cover w-full h-56 px-8"
+                    <div class="max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 ...
+                    ">
+                        <img class="object-cover w-full h-56 px-8 pt-10"
                             src="{{asset('storage/img/'.$user->avatars->src)}}"
                             alt="avatar">
 

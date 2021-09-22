@@ -4,21 +4,14 @@
             {{ __('Gallery') }}
         </h2>
     </x-slot>
-
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <section class="flex">
         <section>
             @include('partials.sidebar')
         </section>
         <section class="w-full h-full">
+            <div class="text-center my-10 py-0">
+                <h1 class="text-2xl">La Galerie d'image</h1>
+            </div>
             <section class="mt-10 grid grid-cols-4 gap-4 mx-4 my-10">
                 @foreach ($images as $image)
                     <div class="w-full max-w-xs text-center my-10">

@@ -22,7 +22,8 @@
             <div class="mb-8">
                 @include('partials.flash')
             </div>
-            <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+            <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 ...
+            ">
                 <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Ajoute une image</h2>
                 <form action="/image" method="POST" enctype="multipart/form-data">
                     @csrf

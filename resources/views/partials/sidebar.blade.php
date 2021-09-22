@@ -106,6 +106,20 @@ class="flex flex-col w-64 h-full py-8 -800 border-r --tw-gradient-from: bg-gradi
                             </a>
                         @endif
                     @endauth
+
+                    <a class="flex items-center px-6 py-4 mt-3 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+                    href="/blog">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                                d="M17 21H7V19H9V18H3C1.89543 18 1 17.1046 1 16V5C1 3.89543 1.89543 3 3 3H21C22.1046 3 23 3.89543 23 5V16C23 17.1046 22.1046 18 21 18H15V19H17V21ZM3 5V16H21V5H3Z"
+                                fill="#2E3A59"></path>
+                    </svg>
+
+
+
+                    <span class="mx-4 font-medium">Blog</span>
+                </a>
                 </nav>
             </div>
     </div>

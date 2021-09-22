@@ -4,16 +4,6 @@
             {{ __('Categories') }}
         </h2>
     </x-slot>
-
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <section class="flex">
         <section>
             @include('partials.sidebar')
@@ -22,7 +12,9 @@
             <div class="mb-8">
                 @include('partials.flash')
             </div>
-            <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+            <section
+                class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 ...
+            ">
                 <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Ajouter une categorie</h2>
                 <form action="/category" method="POST">
                     @csrf
@@ -34,18 +26,15 @@
                         <button type="submit"
                             class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Ajouter</button>
                     </div>
-
-                    {{-- <div class="flex justify-end mt-6">
-
-                    </div> --}}
                 </form>
             </section>
             <section>
-                <h1 class="text-center text-3xl mt-8 text-gray-700">Categories</h1>
-                <div class="mt-8 grid grid-cols-4">
+                <h1 class="text-center text-2xl mt-8 text-gray-700">Categories</h1>
+                <div class="mt-8 grid grid-cols-2">
                     @foreach ($categories as $category)
                         <div
-                            class=" mb-5 max-w-md mx-3 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
+                            class=" mb-5 max-w-md mx-3 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 ...
+                            ">
                             <div class=" bg-cover">
                                 <img src="{{ asset('storage/img/' . $category->name) }}" alt="">
                             </div>
@@ -70,10 +59,15 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <button type="submit" class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-500 rounded hover:bg-green-400">
-                                            <a href="/category/{{$category->id}}/edit"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                              </svg></a>
+                                        <button type="submit"
+                                            class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-500 rounded hover:bg-green-400">
+                                            <a href="/category/{{ $category->id }}/edit"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                </svg></a>
                                         </button>
                                     </div>
                                 </div>
